@@ -1,0 +1,57 @@
+﻿@model EventManagement.Models.Event
+
+@{
+    ViewData["Title"] = "Delete Event";
+}
+
+<h1>Delete Event</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Name
+        </dd>
+        <dt class="col-sm-2">
+            Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Date.ToShortDateString()
+        </dd>
+        <dt class="col-sm-2">
+            Time
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Time
+        </dd>
+        <dt class="col-sm-2">
+            Location
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Location
+        </dd>
+        <dt class="col-sm-2">
+            Category
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Category.CategoryName
+        </dd>
+        <dt class="col-sm-2">
+            Ticket Price
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketPrice
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EventID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>

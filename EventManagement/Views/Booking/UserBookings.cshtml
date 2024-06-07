@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EventManagement.Models.Booking>
+
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h1>My Bookings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Quantity</th>
+            <th>Booking Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Event.Name</td>
+                <td>@booking.Quantity</td>
+                <td>@booking.BookingDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" asp-controller="Event">Book Another Event</a>
+</div>
